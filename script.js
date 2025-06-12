@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const newChatBtn = document.querySelector('.new-chat-btn');
   const historyItems = document.querySelectorAll('.history-item');
 
-  // ✅ Clean and complete addMessage function
+  // Your Render/Heroku backend URL
+  const BACKEND_URL = 'https://backend-chatbot-83ij.onrender.com/api/chat';
+
   function addMessage(text, isUser) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', isUser ? 'user-message' : 'bot-message');
@@ -32,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  // Handle sending messages
   async function sendMessage() {
     const message = userInput.value.trim();
     if (!message) return;
@@ -41,29 +42,35 @@ document.addEventListener('DOMContentLoaded', () => {
     userInput.value = '';
 
     try {
-      const response = await fetch('http://localhost:3000/api/chat', {
+      const response = await fetch(BACKEND_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({ message })
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const data = await response.json();
       addMessage(data.reply, false);
     } catch (error) {
+      console.error('Error:', error);
       addMessage("Arre bhai! Connection issue ho gaya. Phir try karo...", false);
     }
   }
 
-  // 🔁 "New Thread" button click: clears and resets with avatar
+  // New Chat button functionality
   newChatBtn.addEventListener('click', () => {
     chatMessages.innerHTML = '';
     addMessage("Namaste dosto! Main Rohit Negi. Coding, placements, aur GenAI pe sawal pucho!", false);
-
-    // Remove active class from all history items
     historyItems.forEach(item => item.classList.remove('active'));
   });
 
-  // Handle chat history click
+  // Chat history items
   historyItems.forEach(item => {
     item.addEventListener('click', () => {
       historyItems.forEach(i => i.classList.remove('active'));
@@ -73,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 👋 Initial welcome message with image
+  // Initial welcome message
   addMessage("Namaste dosto! Main Rohit Negi. Coding, placements, aur GenAI pe sawal pucho!", false);
 
   // Event listeners
