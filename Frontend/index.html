@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohit Negi AI Mentor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <button class="new-chat-btn">
+        <i class="fas fa-plus"></i> New Thread
+      </button>
+      <div class="chat-history">
+        <div class="history-item active">
+          <i class="fas fa-message"></i>
+          <span>Build Your Own AI</span>
+        </div>
+        <div class="history-item">
+          <i class="fas fa-message"></i>
+          <span>DSA Interview Prep</span>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar">RN</div>
+          <span>Rohit Negi</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Chat Area -->
+    <div class="main-content">
+      <div class="chat-container">
+        <div class="chat-header">
+          <h1>Rohit Negi AI</h1>
+          <p>Your mentor for coding, placements and GenAI</p>
+        </div>
+        
+        <div id="chat-messages">
+          <div class="message bot-message">
+            <div class="message-content">
+              <div class="message-header">
+                <div class="avatar">RN</div>
+                <span>Rohit Negi AI</span>
+              </div>
+              <p>Namaste dosto! 👋 Main Rohit Negi. Coding, placements, aur GenAI pe sawal pucho!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-container">
+          <input 
+            type="text" 
+            id="user-input" 
+            placeholder="Ask Rohit about coding, placements..."
+            autocomplete="off">
+          <button id="send-btn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
