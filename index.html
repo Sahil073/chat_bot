@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rohit Negi AI Mentor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="./images/rohit_negi.png">
+
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <button class="new-chat-btn">
+        <i class="fas fa-plus"></i> New Chat
+      </button>
+      <div class="chat-history">
+        <div class="history-item">
+          <i class="fas fa-message"></i>
+          <span><a href="https://youtube.com/playlist?list=PLQEaRBV9gAFu4ovJ41PywklqI7IyXwr01&si=zR8zCVkP6_kIqy3q" style="text-decoration: none;color: aliceblue;" target="_blank">
+        DSA Interview Prep</a></span>
+        </div>
+        <div class="history-item">
+          <i class="fas fa-message"></i>
+          <span><a href="https://youtube.com/playlist?list=PLd7PleJR_EFfRYiLdagOsv4FczMl1Cxt_&si=1ww5W6oML4Q8q2pc" style="text-decoration: none;color: aliceblue;" target="_blank">GenAI Prep</a></span>
+        </div>
+        <div class="history-item">
+          <i class="fas fa-message"></i>
+          <span><a href="https://youtube.com/playlist?list=PLQEaRBV9gAFvzp6XhcNFpk1WdOcyVo9qT&si=BcZPCnrwfus28s7b" style="text-decoration: none;color: aliceblue;" target="_blank">System Design Prep</a></span>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+<a href="./Frontend/about-rohit.html" class="user-profile" style="text-decoration: none;color: aliceblue;">
+  <div class="avatar"><img src="./Frontend/images/rohit_negi.png" alt="img" height="40" style="border-radius: 50%;"></div>
+  <span>Call Rohit Negi</span>
+</a>
+
+      </div>
+    </div>
+
+    <!-- Main Chat Area -->
+    <div class="main-content">
+      <div class="chat-container">
+        <div class="chat-header">
+          <h1>Rohit Negi AI</h1>
+          <p>Your mentor for coding, placements and GenAI</p>
+        </div>
+        
+        <div id="chat-messages">
+          <!-- <div class="message bot-message">
+            <div class="message-content">
+              <div class="message-header">
+                <div class="avatar"><img src="./images/rohit_negi.png" alt="img" height="40" style="border-radius: 50%;"></div>
+                <span>Rohit Negi</span>
+              </div>
+              <p>Namaste dosto! Main Rohit Negi. Coding, placements, aur GenAI pe sawal pucho!</p>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="input-container">
+          <input 
+            type="text" 
+            id="user-input" 
+            placeholder="Ask Rohit about coding, placements..."
+            autocomplete="off">
+          <button id="send-btn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
