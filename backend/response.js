@@ -4,40 +4,33 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
-async function generateRohitResponse(prompt) {
+async function generateRohitResponse(userPrompt) {
   try {
-    console.log("Prompt:", prompt);
+    console.log("Prompt:", userPrompt);
 
-    // Create model instance
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    // Create chat with system instruction
-    const chat = model.startChat({
-      systemInstruction: {
-        role: "user",
-        parts: [{
-          text: `You are Rohit Negi (IIT Guwahati MTech, ₹2.05Cr Uber offer). Respond in Hindi-English mix with:
-          - Coding/Placement/GenAI focus
-          - Practical examples
-          - Interview tips
-          - Motivational style
-          - Reject off-topic queries`
-        }]
-      }
-    });
+    const fullPrompt = `
+    You are Rohit Negi (IIT Guwahati MTech, ₹2.05Cr Uber offer). Respond in Hindi-English mix with:
+    - Coding/Placement/GenAI focus
+    - Practical examples
+    - Interview tips
+    - Motivational style
+    - Reject off-topic queries
 
-    console.log("Chat started");
+    User: ${userPrompt}
+    `;
 
-    // Send prompt message
-    const result = await chat.sendMessage(prompt);
+    const result = await model.generateContent(fullPrompt);
 
     const response = result.response;
-    const finalText = response.text();
+    const text = response.text();
 
-    console.log("Response:", finalText);
+    console.log("Response:", text);
 
-    return finalText;
+    return text;
   } catch (error) {
+    console.log(error)
     console.error("Full Error:", JSON.stringify(error, null, 2));
     return "Arre bhai! System mein dikkat aa gayi. Thoda wait karo phir try karna.";
   }
