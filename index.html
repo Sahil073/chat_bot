@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Half_Civilian</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="./images/Logo.jpg">
-
 </head>
 <body>
   <div class="app-container">
     <!-- Sidebar -->
-<div class="sidebar">
-  <button class="new-chat-btn">
-    <i class="fas fa-plus"></i> New Chat
-  </button>
+    <div class="sidebar">
+      <button class="new-chat-btn">
+        <i class="fas fa-plus"></i> New Chat
+      </button>
 
-  <div class="chat-history" id="videoList">
-    <!-- Videos will be added dynamically here -->
-  </div>
+      <div class="chat-history" id="videoList">
+        <!-- Videos will be added dynamically here -->
+      </div>
 
-  <div class="sidebar-footer">
-    <a href="./about-rohit.html" class="user-profile" style="text-decoration: none;color: aliceblue;">
-      <div class="avatar"><img src="./images/Logo.jpg" alt="img" height="40" style="border-radius: 50%;"></div>
-      <span>Call Half Civilian</span>
-    </a>
-  </div>
-</div>
+      <div class="sidebar-footer">
+        <a href="./about-rohit.html" class="user-profile" style="text-decoration: none;color: aliceblue;">
+          <div class="avatar">
+            <img src="./images/Logo.jpg" alt="img" height="40" style="border-radius: 50%;">
+          </div>
+          <span>Call Half Civilian</span>
+        </a>
+      </div>
+    </div>
 
     <!-- Main Chat Area -->
     <div class="main-content">
@@ -37,18 +37,8 @@
           <h1>Half Civilian AI</h1>
           <p>Your brother for Life, SSB.</p>
         </div>
-        
-        <div id="chat-messages">
-          <!-- <div class="message bot-message">
-            <div class="message-content">
-              <div class="message-header">
-                <div class="avatar"><img src="./images/rohit_negi.png" alt="img" height="40" style="border-radius: 50%;"></div>
-                <span>Rohit Negi</span>
-              </div>
-              <p>Namaste dosto! Main Rohit Negi. Coding, placements, aur GenAI pe sawal pucho!</p>
-            </div>
-          </div> -->
-        </div>
+
+        <div id="chat-messages"></div>
 
         <div class="input-container">
           <input 
@@ -64,54 +54,92 @@
     </div>
   </div>
 
+  <!-- Chat logic -->
   <script src="script.js"></script>
-    <script>
-  // Replace these with your YouTube video or playlist links
-  const videoLinks = [
-    {
-      title: "Interview",
-      url: "https://youtube.com/playlist?list=PLxZ3LilwEuSVAfg3f-vdEa4NRudDQ35fn&si=pKj1t2x6j4sSce8c"
-    },
-    {
-      title: "5BRCC",
-      url: "https://youtube.com/playlist?list=PLxZ3LilwEuSVSxNMTx2R4x62CqDBH29TK&si=X0JU1MmROqHxNslT"
-    },
-    {
-      title: "Psychology",
-      url: "https://youtube.com/playlist?list=PLljhWtnfi2-7Dk55gOvOP6D1iikMKv-IF&si=9J9lWt9Lp9J3TtBT"
-    },
-    {
-      title: "SSB Overview",
-      url: "https://youtu.be/DbAB17w18ro?si=hz1IunGjQ0UZMY4M"
-    },
-    {
-      title: "Interview must watch",
-      url: "https://youtu.be/OEMdrUi8if0?si=QGJKlbQAhoMopfKp"
-    },
-    {
-      title: "WAT Examples",
-      url: "https://youtu.be/HTqKTnxHakg?si=RChXUsnrSSDae147"
-    },
-    
-  ];
 
-  const videoList = document.getElementById("videoList");
+  <!-- Sidebar video thumbnails -->
+  <script>
+    const videoLinks = [
+      {
+        title: "Interview",
+        url: "https://youtube.com/playlist?list=PLxZ3LilwEuSVAfg3f-vdEa4NRudDQ35fn&si=pKj1t2x6j4sSce8c"
+      },
+      {
+        title: "5BRCC",
+        url: "https://youtube.com/playlist?list=PLxZ3LilwEuSVSxNMTx2R4x62CqDBH29TK&si=X0JU1MmROqHxNslT"
+      },
+      {
+        title: "Psychology",
+        url: "https://youtube.com/playlist?list=PLljhWtnfi2-7Dk55gOvOP6D1iikMKv-IF&si=9J9lWt9Lp9J3TtBT"
+      },
+      {
+        title: "SSB Overview",
+        url: "https://youtu.be/DbAB17w18ro?si=hz1IunGjQ0UZMY4M"
+      },
+      {
+        title: "Interview must watch",
+        url: "https://youtu.be/OEMdrUi8if0?si=QGJKlbQAhoMopfKp"
+      },
+      {
+        title: "WAT Examples",
+        url: "https://youtu.be/HTqKTnxHakg?si=RChXUsnrSSDae147"
+      },
+    ];
 
-  videoLinks.forEach(video => {
-    // Extract the YouTube video ID from URL
-    const videoId = new URL(video.url).searchParams.get("v");
-    const thumbUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+    const videoList = document.getElementById("videoList");
 
-    const videoDiv = document.createElement("div");
-    videoDiv.className = "history-item";
-    videoDiv.innerHTML = `
-      <a href="${video.url}" target="_blank" style="text-decoration: none; color: aliceblue;">
-        <img src="${thumbUrl}" alt="${video.title}" style="width: 100%; max-width: 220px; border-radius: 10px; margin-bottom: 5px;" />
-        <div style="text-align: center; font-size: 14px;">🎬 ${video.title}</div>
-      </a>
-    `;
-    videoList.appendChild(videoDiv);
-  });
-</script>
+    // Helper function to extract YouTube video ID
+    function getVideoId(url) {
+      try {
+        const parsedUrl = new URL(url);
+        if (parsedUrl.hostname === "youtu.be") {
+          return parsedUrl.pathname.slice(1); // youtu.be/VIDEOID
+        } else if (parsedUrl.searchParams.get("v")) {
+          return parsedUrl.searchParams.get("v"); // youtube.com/watch?v=VIDEOID
+        } else if (parsedUrl.searchParams.get("list")) {
+          // fallback to show playlist thumbnail using static image (or skip)
+          return null;
+        }
+      } catch (e) {
+        console.warn("Invalid YouTube URL:", url);
+      }
+      return null;
+    }
+
+    videoLinks.forEach(video => {
+      const videoId = getVideoId(video.url);
+      const thumbUrl = videoId 
+        ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
+        : './images/fallback-thumb.jpg'; // fallback image for playlists
+
+      const videoDiv = document.createElement("div");
+      videoDiv.className = "history-item";
+      videoDiv.innerHTML = `
+        <a href="${video.url}" target="_blank" style="text-decoration: none; color: aliceblue;">
+          <img src="${thumbUrl}" alt="${video.title}" 
+               style="width: 100%; max-width: 220px; border-radius: 10px; margin-bottom: 5px;" 
+               onerror="this.src='./images/fallback-thumb.jpg';" />
+          <div style="text-align: center; font-size: 14px;">🎬 ${video.title}</div>
+        </a>
+      `;
+      videoList.appendChild(videoDiv);
+    });
+      fetch("https://backend-chatbot-83ij.onrender.com/api/visitor-count")
+    .then(res => res.json())
+    .then(data => {
+      const counter = document.createElement("div");
+      counter.style.position = "fixed";
+      counter.style.bottom = "10px";
+      counter.style.right = "10px";
+      counter.style.color = "white";
+      counter.style.fontSize = "14px";
+      counter.style.background = "rgba(0,0,0,0.5)";
+      counter.style.padding = "8px 12px";
+      counter.style.borderRadius = "8px";
+      counter.innerText = `👥 Visitors: ${data.count}`;
+      document.body.appendChild(counter);
+    })
+    .catch(err => console.error("Visitor counter error:", err));
+  </script>
 </body>
 </html>

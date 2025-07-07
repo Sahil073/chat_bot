@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const newChatBtn = document.querySelector('.new-chat-btn');
   const historyItems = document.querySelectorAll('.history-item');
 
-  // Your Render/Heroku backend URL
-  const BACKEND_URL = 'https://backend-chatbot-83ij.onrender.com';
+  // ✅ Correct API endpoint
+  const BACKEND_URL = 'https://backend-chatbot-83ij.onrender.com/api/chat';
 
+  // ✅ Adds a message (user or bot)
   function addMessage(text, isUser) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', isUser ? 'user-message' : 'bot-message');
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
+  // ✅ Send message to backend
   async function sendMessage() {
     const message = userInput.value.trim();
     if (!message) return;
@@ -56,34 +58,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const data = await response.json();
-      addMessage(data.reply, false);
+      if (data.reply) {
+        addMessage(data.reply, false);
+      } else {
+        addMessage("⚠️ No reply received. Please try again later.", false);
+      }
     } catch (error) {
       console.error('Error:', error);
-      addMessage("Arre bhai! Connection issue ho gaya. Phir try karo...", false);
+      addMessage("❌ Arre bhai! Connection issue ho gaya. Phir try karo...", false);
     }
   }
 
-  // New Chat button functionality
+  // ✅ Start a new chat
   newChatBtn.addEventListener('click', () => {
     chatMessages.innerHTML = '';
-    addMessage("Jai Hind! My name is Sahil Chaudhary, Let's improve life, and make ssb cake walk.", false);
+    addMessage("🎖️ Jai Hind! My name is Sahil Chaudhary, Let's improve life and make SSB a cakewalk.", false);
     historyItems.forEach(item => item.classList.remove('active'));
   });
 
-  // Chat history items
+  // ✅ Chat history buttons
   historyItems.forEach(item => {
     item.addEventListener('click', () => {
       historyItems.forEach(i => i.classList.remove('active'));
       item.classList.add('active');
       chatMessages.innerHTML = '';
-      addMessage("Selected: " + item.querySelector('span').textContent, false);
+      addMessage(`📚 Selected: ${item.querySelector('span').textContent}`, false);
     });
   });
 
-  // Initial welcome message
-  addMessage("Jai Hind! My name is Sahil Chaudhary, Let's improve life, and make ssb cake walk.", false);
+  // ✅ Initial message
+  addMessage("🎖️ Jai Hind! My name is Sahil Chaudhary, Let's improve life and make SSB a cakewalk.", false);
 
-  // Event listeners
+  // ✅ Send on button click or Enter key
   sendBtn.addEventListener('click', sendMessage);
   userInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendMessage();
