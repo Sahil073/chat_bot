@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const historyItems = document.querySelectorAll('.history-item');
 
   // Your Render/Heroku backend URL
-  const BACKEND_URL = 'https://backend-chatbot-83ij.onrender.com/api/chat';
+  const BACKEND_URL = 'https://backend-chatbot-83ij.onrender.com';
 
   function addMessage(text, isUser) {
     const messageDiv = document.createElement('div');
