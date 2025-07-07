@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Rohit Negi AI Mentor</title>
+  <title>Half_Civilian</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="./images/rohit_negi.png">
@@ -13,40 +13,29 @@
 <body>
   <div class="app-container">
     <!-- Sidebar -->
-    <div class="sidebar">
-      <button class="new-chat-btn">
-        <i class="fas fa-plus"></i> New Chat
-      </button>
-      <div class="chat-history">
-        <div class="history-item">
-          <i class="fas fa-message"></i>
-          <span><a href="https://youtube.com/playlist?list=PLQEaRBV9gAFu4ovJ41PywklqI7IyXwr01&si=zR8zCVkP6_kIqy3q" style="text-decoration: none;color: aliceblue;" target="_blank">
-        DSA Interview Prep</a></span>
-        </div>
-        <div class="history-item">
-          <i class="fas fa-message"></i>
-          <span><a href="https://youtube.com/playlist?list=PLd7PleJR_EFfRYiLdagOsv4FczMl1Cxt_&si=1ww5W6oML4Q8q2pc" style="text-decoration: none;color: aliceblue;" target="_blank">GenAI Prep</a></span>
-        </div>
-        <div class="history-item">
-          <i class="fas fa-message"></i>
-          <span><a href="https://youtube.com/playlist?list=PLQEaRBV9gAFvzp6XhcNFpk1WdOcyVo9qT&si=BcZPCnrwfus28s7b" style="text-decoration: none;color: aliceblue;" target="_blank">System Design Prep</a></span>
-        </div>
-      </div>
-      <div class="sidebar-footer">
-<a href="./about-rohit.html" class="user-profile" style="text-decoration: none;color: aliceblue;">
-  <div class="avatar"><img src="./images/rohit_negi.png" alt="img" height="40" style="border-radius: 50%;"></div>
-  <span>Call Rohit Negi</span>
-</a>
+<div class="sidebar">
+  <button class="new-chat-btn">
+    <i class="fas fa-plus"></i> New Chat
+  </button>
 
-      </div>
-    </div>
+  <div class="chat-history" id="videoList">
+    <!-- Videos will be added dynamically here -->
+  </div>
+
+  <div class="sidebar-footer">
+    <a href="./about-rohit.html" class="user-profile" style="text-decoration: none;color: aliceblue;">
+      <div class="avatar"><img src="./images/Logo.jpg" alt="img" height="40" style="border-radius: 50%;"></div>
+      <span>Call Half Civilian</span>
+    </a>
+  </div>
+</div>
 
     <!-- Main Chat Area -->
     <div class="main-content">
       <div class="chat-container">
         <div class="chat-header">
-          <h1>Rohit Negi AI</h1>
-          <p>Your mentor for coding, placements and GenAI</p>
+          <h1>Half Civilian AI</h1>
+          <p>Your brother for Life, SSB.</p>
         </div>
         
         <div id="chat-messages">
@@ -65,7 +54,7 @@
           <input 
             type="text" 
             id="user-input" 
-            placeholder="Ask Rohit about coding, placements..."
+            placeholder="Ask Half_Civilian........."
             autocomplete="off">
           <button id="send-btn">
             <i class="fas fa-paper-plane"></i>
@@ -76,5 +65,53 @@
   </div>
 
   <script src="script.js"></script>
+    <script>
+  // Replace these with your YouTube video or playlist links
+  const videoLinks = [
+    {
+      title: "Interview",
+      url: "https://youtube.com/playlist?list=PLxZ3LilwEuSVAfg3f-vdEa4NRudDQ35fn&si=pKj1t2x6j4sSce8c"
+    },
+    {
+      title: "5BRCC",
+      url: "https://youtube.com/playlist?list=PLxZ3LilwEuSVSxNMTx2R4x62CqDBH29TK&si=X0JU1MmROqHxNslT"
+    },
+    {
+      title: "Psychology",
+      url: "https://youtube.com/playlist?list=PLljhWtnfi2-7Dk55gOvOP6D1iikMKv-IF&si=9J9lWt9Lp9J3TtBT"
+    },
+    {
+      title: "SSB Overview",
+      url: "https://youtu.be/DbAB17w18ro?si=hz1IunGjQ0UZMY4M"
+    },
+    {
+      title: "Interview must watch",
+      url: "https://youtu.be/OEMdrUi8if0?si=QGJKlbQAhoMopfKp"
+    },
+    {
+      title: "WAT Examples",
+      url: "https://youtu.be/HTqKTnxHakg?si=RChXUsnrSSDae147"
+    },
+    
+  ];
+
+  const videoList = document.getElementById("videoList");
+
+  videoLinks.forEach(video => {
+    // Extract the YouTube video ID from URL
+    const videoId = new URL(video.url).searchParams.get("v");
+    const thumbUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+
+    const videoDiv = document.createElement("div");
+    videoDiv.className = "history-item";
+    videoDiv.innerHTML = `
+      <a href="${video.url}" target="_blank" style="text-decoration: none; color: aliceblue;">
+        <img src="${thumbUrl}" alt="${video.title}" style="width: 100%; max-width: 220px; border-radius: 10px; margin-bottom: 5px;" />
+        <div style="text-align: center; font-size: 14px;">🎬 ${video.title}</div>
+      </a>
+    `;
+    videoList.appendChild(videoDiv);
+  });
+</script>
 </body>
 </html>

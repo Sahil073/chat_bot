@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
       contentDiv.innerHTML = `
         <div class="message-header">
           <div class="avatar">
-            <img src="./images/rohit_negi.png" alt="img" height="40" style="border-radius: 50%;">
+            <img src="./images/Logo.jpg" alt="img" height="40" style="border-radius: 50%;">
           </div>
-          <span>Rohit Negi</span>
+          <span>Half Civilian</span>
         </div>
         <p>${text}</p>
       `;
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // New Chat button functionality
   newChatBtn.addEventListener('click', () => {
     chatMessages.innerHTML = '';
-    addMessage("Namaste dosto! Main Rohit Negi. Coding, placements, aur GenAI pe sawal pucho!", false);
+    addMessage("Jai Hind! My name is Sahil Chaudhary, Let's improve life, and make ssb cake walk.", false);
     historyItems.forEach(item => item.classList.remove('active'));
   });
 
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Initial welcome message
-  addMessage("Namaste dosto! Main Rohit Negi. Coding, placements, aur GenAI pe sawal pucho!", false);
+  addMessage("Jai Hind! My name is Sahil Chaudhary, Let's improve life, and make ssb cake walk.", false);
 
   // Event listeners
   sendBtn.addEventListener('click', sendMessage);

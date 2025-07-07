@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>About Rohit Negi</title>
+  <title>About SSB (Services Selection Board)</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
@@ -16,6 +16,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 20px;
     }
 
     .avatar {
@@ -24,6 +25,14 @@
       border-radius: 50%;
       background-color: #fff;
       margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
 
     h1 {
@@ -33,16 +42,43 @@
     }
 
     p {
-      max-width: 500px;
+      max-width: 700px;
       color: #c0c0c0;
       font-size: 16px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .ssb-stages {
+      text-align: left;
+      max-width: 700px;
+      background-color: #111;
+      border: 1px solid #444;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .ssb-stages h2 {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .ssb-stages ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    .ssb-stages li {
+      margin-bottom: 10px;
     }
 
     .social-buttons {
       display: flex;
       gap: 20px;
       justify-content: center;
+      margin-top: 20px;
     }
 
     .social-buttons a {
@@ -79,20 +115,51 @@
 <body>
 
   <div class="avatar">
-    <!-- Add your own image if needed -->
-    <img src="./images/rohit_negi.png" alt="Rohit Negi" style="border-radius: 50%; width: 100%; height: 100%;">
+    <img src="./images/ssb_icon.png" alt="SSB Avatar" />
   </div>
 
-  <h1>Rohit Negi</h1>
-  <p>Your AI Mentor for coding, placement preparation, and GenAI projects. Reach out and connect on your favorite platform!</p>
+  <h1>Welcome to Half_Civilian</h1>
+  <p>
+    The Services Selection Board (SSB) is a 5-day evaluation process designed to test your mental, physical, psychological, and leadership qualities to become a future officer in the Armed Forces of India. 🇮🇳
+  </p>
+
+  <div class="ssb-stages">
+    <h2>🔰 SSB Interview Process (5 Days)</h2>
+    <ul>
+      <li><strong>Day 0 (Reporting Day):</strong> Document verification, briefing, and allotment of chest numbers.</li>
+      <li><strong>Day 1 – Screening Test:</strong> 
+        <ul>
+          <li>OIR (Officers Intelligence Rating Test)</li>
+          <li>PPDT (Picture Perception and Discussion Test)</li>
+        </ul>
+      </li>
+      <li><strong>Day 2 – Psychological Tests:</strong>
+        <ul>
+          <li>TAT (Thematic Apperception Test)</li>
+          <li>WAT (Word Association Test)</li>
+          <li>SRT (Situation Reaction Test)</li>
+          <li>SDT (Self-Description Test)</li>
+        </ul>
+      </li>
+      <li><strong>Day 3 & 4 – GTO Tasks + Interview:</strong>
+        <ul>
+          <li>Group Discussion, GPE, PGT, HGT, Command Task, Lecturette, Individual Obstacles, etc.</li>
+          <li>Personal Interview (based on PIQ form and life story)</li>
+        </ul>
+      </li>
+      <li><strong>Day 5 – Conference Day:</strong> A panel evaluates your overall performance and announces results.</li>
+    </ul>
+  </div>
+
+  <p><strong>💡 Tip:</strong> SSB is not about knowledge, it’s about <em>Officer Like Qualities (OLQs)</em>: confidence, responsibility, cooperation, initiative, and more. Stay authentic, stay calm.</p>
 
   <div class="social-buttons">
-    <a href="https://www.linkedin.com/in/rohit-negi9/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    <a href="https://twitter.com/rohitnegi" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-    <a href="https://youtube.com/@rohitnegi" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+    <a href="https://joinindianarmy.nic.in/" target="_blank"><i class="fas fa-shield-alt"></i> Join Army</a>
+    <a href="https://afcat.cdac.in/" target="_blank"><i class="fas fa-fighter-jet"></i> Join Air Force</a>
+    <a href="https://www.joinindiannavy.gov.in/" target="_blank"><i class="fas fa-anchor"></i> Join Navy</a>
   </div>
 
-  <a class="back-link" href="index.html">← Back to Chat</a>
+  <a class="back-link" href="index.html">← Back to Home</a>
   <script src="./scripttts.js"></script>
 </body>
 </html>
